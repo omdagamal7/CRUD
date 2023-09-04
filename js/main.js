@@ -5,6 +5,7 @@ let prodDesc = document.querySelector("#prodDesc");
 let addBtn = document.getElementById("addbtn");
 let upBtn = document.getElementById("upbtn");
 let search = document.getElementById("search");
+let form = document.getElementById("form");
 let indexNum;
 let listFoundedBySearch;
 let isSearching = false;
@@ -13,7 +14,6 @@ if (localStorage.getItem("product list") == null) {
   prodList = [];
 } else {
   prodList = JSON.parse(localStorage.getItem("product list"))
-  console.log('prodList: ', prodList);
   display(prodList)
   
 }
@@ -32,6 +32,10 @@ function addProd() {
   display(prodList);
   localStorage.setItem("product list",JSON.stringify( prodList))
   clear();
+  form.querySelectorAll("input").forEach(input=>{
+    input.classList.remove("false")
+    input.classList.remove("true")
+  })
 }
 }
 addBtn.addEventListener("click", function(){
@@ -127,33 +131,32 @@ search.addEventListener("input",function(){
 function validateNameProduct() {
   let regex = /^([a-z]{3,18}$)/i
   if (regex.test(prodName.value) === true) {
-    prodName.style = "box-shadow: 0 0 0 4px rgba(0,150,41,0.3)";
-    prodName.style.borderColor = "green"
+    prodName.classList.replace("false","true")
     return true
   } else {
-    prodName.style = "box-shadow: 0 0 0 4px rgba(255,0,0,0.3)";
-    prodName.style.borderColor = "red "
+    prodName.classList.add("false")
+    if (prodName.value == "") {
+      prodName.classList.remove("false")
+      prodName.classList.remove("true")
+    }
     return false
   }
 
 }
 
-
-
-// ? VALIDATE PRICE
-
-
-
 // ? VALIDATE PRICE
 function validatePriceProduct () {
   let regex = /^([0-9]){2,5}$/
   if (regex.test(prodPrice.value) === true) {
-    prodPrice.style = "box-shadow: 0 0 0 4px rgba(0,150,41,0.3)";
-    prodPrice.style.borderColor = "green"
+    prodPrice.classList.replace("false","true")
     return true
   } else {
-    prodPrice.style = "box-shadow: 0 0 0 4px rgba(255,0,0,0.3)";
-    prodPrice.style.borderColor = "red "
+    prodPrice.classList.add("false")
+    if (prodPrice.value == "") {
+      console.log("ee7");
+      prodPrice.classList.remove("false")
+      prodPrice.classList.remove("true")
+    }
     return false
   }
 }
@@ -164,17 +167,17 @@ function validatePriceProduct () {
 function validateModelProduct () {
   let regex = /^(Television|television|Mobile|mobile|laptop|Laptop)$/
   if (regex.test(prodModel.value) === true) {
-    prodModel.style = "box-shadow: 0 0 0 4px rgba(0,150,41,0.3)";
-    prodModel.style.borderColor = "green"
+    prodModel.classList.replace("false","true")
     return true
   } else {
-    prodModel.style = "box-shadow: 0 0 0 4px rgba(255,0,0,0.3)";
-    prodModel.style.borderColor = "red "
-    return false
+    prodModel.classList.add("false")
+    if (prodModel.value == "") {
+      prodModel.classList.remove("false")
+      prodModel.classList.remove("true")
+      }
+  return false
   }
 }
-
-
 
 
 prodName.addEventListener("input",function(){
@@ -189,3 +192,7 @@ prodPrice.addEventListener("input",function(){
 prodModel.addEventListener("input",function(){
   validateModelProduct();
 })
+
+
+
+

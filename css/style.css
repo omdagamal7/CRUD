@@ -6,3 +6,11 @@ body {
   left: 10%;
   bottom: 20px;
 }
+.true {
+  box-shadow: 0 0 0 4px rgba(0,150,41,0.3) !important;
+  border-color: green !important;
+}
+.false {
+  box-shadow: 0 0 0 4px rgba(255,0,0,0.3) !important;
+  border-color: red !important;
+}
