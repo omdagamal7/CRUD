@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+  
+
+<div class="container py-5">
+  <div class="w-75 mx-auto mb-5">
+    <h1 class="mb-5">CRUD</h1>
+    <div class="form-groub mb-4">
+      <label for="prodName" class="mb-2">productName</label>
+      <input type="text" name="prodName" id="prodName" class="form-control" placeholder="product name">
+    </div>
+    <div class="form-groub mb-4">
+      <label for="prodPrice" class="mb-2">productPrice</label>
+      <input type="text" name="prodPrice" id="prodPrice" class="form-control " placeholder="product price">
+    </div>
+    <div class="form-groub mb-4">
+      <label for="prodModel" class="mb-2">productModel</label>
+      <input type="text" name="prodModel" id="prodModel" class="form-control " placeholder="product model">
+    </div>
+    <div class="form-groub mb-4">
+      <label for="prodDesc" class="mb-2">productDesk</label>
+      <textarea name="prodDesc" id="prodDesc" class="form-control" placeholder="productDesc"></textarea>
+    </div>
+    <button  class="btn btn-outline-primary" id="addbtn">add product</button>
+    <button class="btn btn-outline-warning d-none" id="upbtn">update product</button>
+  </div>
+  <div class="mx-auto">
+    <input type="search" name="search" id="search" class="form-control mb-3 w-75 mx-auto" placeholder="search">
+    <table class="table w-75 mx-auto text-center">
+      <thead>
+        <tr>
+          <td>index</td>
+          <td>name</td>
+          <td>price</td>
+          <td>model</td>
+          <td>descraption</td>
+          <td>update</td>
+          <td>delete</td>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
